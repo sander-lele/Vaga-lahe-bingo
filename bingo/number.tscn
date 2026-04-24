@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cpne11yvpnq47"]
+
+[ext_resource type="Script" uid="uid://bcdlu65kfbxo6" path="res://number.gd" id="1_r3wqd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jcyp3"]
+font_size = 55
+
+[node name="Number" type="Panel" unique_id=1676371297]
+custom_minimum_size = Vector2(115, 115)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -451.0
+offset_bottom = -199.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_r3wqd")
+
+[node name="Label" type="Label" parent="." unique_id=581459631]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.5
+offset_top = -38.0
+offset_right = 15.5
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+label_settings = SubResource("LabelSettings_jcyp3")
+horizontal_alignment = 1
+vertical_alignment = 1
