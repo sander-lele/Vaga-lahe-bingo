@@ -14,7 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ig7tw")
 
-[node name="Board" type="HBoxContainer" parent="." unique_id=1556718313]
+[node name="Split" type="HBoxContainer" parent="." unique_id=1383429928]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,12 +22,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="B" type="Panel" parent="Board" unique_id=1821602668]
+[node name="Board" type="HBoxContainer" parent="Split" unique_id=1556718313]
+layout_mode = 2
+
+[node name="B" type="Panel" parent="Split/Board" unique_id=1821602668]
 custom_minimum_size = Vector2(115, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Board/B" unique_id=1599935553]
+[node name="VBoxContainer" type="VBoxContainer" parent="Split/Board/B" unique_id=1599935553]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,7 +38,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Board/B/VBoxContainer" unique_id=2125269659]
+[node name="Label" type="Label" parent="Split/Board/B/VBoxContainer" unique_id=2125269659]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "B"
@@ -43,15 +46,15 @@ label_settings = SubResource("LabelSettings_ig7tw")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="NumberHolder" type="VBoxContainer" parent="Board/B/VBoxContainer" unique_id=301024233]
+[node name="NumberHolder" type="VBoxContainer" parent="Split/Board/B/VBoxContainer" unique_id=301024233]
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="I" type="Panel" parent="Board" unique_id=1754556489]
+[node name="I" type="Panel" parent="Split/Board" unique_id=1754556489]
 custom_minimum_size = Vector2(115, 0)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Board/I" unique_id=1552949291]
+[node name="VBoxContainer" type="VBoxContainer" parent="Split/Board/I" unique_id=1552949291]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -59,7 +62,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Board/I/VBoxContainer" unique_id=1402839090]
+[node name="Label" type="Label" parent="Split/Board/I/VBoxContainer" unique_id=1402839090]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "I"
@@ -67,15 +70,15 @@ label_settings = SubResource("LabelSettings_ig7tw")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="NumberHolder" type="VBoxContainer" parent="Board/I/VBoxContainer" unique_id=1954587733]
+[node name="NumberHolder" type="VBoxContainer" parent="Split/Board/I/VBoxContainer" unique_id=1954587733]
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="N" type="Panel" parent="Board" unique_id=774934907]
+[node name="N" type="Panel" parent="Split/Board" unique_id=774934907]
 custom_minimum_size = Vector2(115, 0)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Board/N" unique_id=22200791]
+[node name="VBoxContainer" type="VBoxContainer" parent="Split/Board/N" unique_id=22200791]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -83,7 +86,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Board/N/VBoxContainer" unique_id=8998793]
+[node name="Label" type="Label" parent="Split/Board/N/VBoxContainer" unique_id=8998793]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "N"
@@ -91,15 +94,15 @@ label_settings = SubResource("LabelSettings_ig7tw")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="NumberHolder" type="VBoxContainer" parent="Board/N/VBoxContainer" unique_id=839792864]
+[node name="NumberHolder" type="VBoxContainer" parent="Split/Board/N/VBoxContainer" unique_id=839792864]
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="G" type="Panel" parent="Board" unique_id=437205515]
+[node name="G" type="Panel" parent="Split/Board" unique_id=437205515]
 custom_minimum_size = Vector2(115, 0)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Board/G" unique_id=2056854756]
+[node name="VBoxContainer" type="VBoxContainer" parent="Split/Board/G" unique_id=2056854756]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -107,7 +110,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Board/G/VBoxContainer" unique_id=898649786]
+[node name="Label" type="Label" parent="Split/Board/G/VBoxContainer" unique_id=898649786]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "G"
@@ -115,15 +118,15 @@ label_settings = SubResource("LabelSettings_ig7tw")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="NumberHolder" type="VBoxContainer" parent="Board/G/VBoxContainer" unique_id=68020606]
+[node name="NumberHolder" type="VBoxContainer" parent="Split/Board/G/VBoxContainer" unique_id=68020606]
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="O" type="Panel" parent="Board" unique_id=805276487]
+[node name="O" type="Panel" parent="Split/Board" unique_id=805276487]
 custom_minimum_size = Vector2(115, 0)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Board/O" unique_id=1759774920]
+[node name="VBoxContainer" type="VBoxContainer" parent="Split/Board/O" unique_id=1759774920]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -131,7 +134,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Board/O/VBoxContainer" unique_id=1344443479]
+[node name="Label" type="Label" parent="Split/Board/O/VBoxContainer" unique_id=1344443479]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "O"
@@ -139,6 +142,34 @@ label_settings = SubResource("LabelSettings_ig7tw")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="NumberHolder" type="VBoxContainer" parent="Board/O/VBoxContainer" unique_id=846134190]
+[node name="NumberHolder" type="VBoxContainer" parent="Split/Board/O/VBoxContainer" unique_id=846134190]
 layout_mode = 2
 theme_override_constants/separation = 5
+
+[node name="InfoPanel" type="Panel" parent="Split" unique_id=799981608]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Split/InfoPanel" unique_id=91085130]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NumbersPanel" type="Label" parent="Split/InfoPanel/VBoxContainer" unique_id=325369369]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BallCounter" type="Label" parent="Split/InfoPanel/VBoxContainer" unique_id=819352187]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="NumberButton" type="Button" parent="Split/InfoPanel/VBoxContainer" unique_id=72965956]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+text = "LET IT RIDE!!!!"
+
+[connection signal="pressed" from="Split/InfoPanel/VBoxContainer/NumberButton" to="." method="_on_button_pressed"]

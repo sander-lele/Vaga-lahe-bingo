@@ -5,7 +5,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_jcyp3"]
 font_size = 55
 
-[node name="Number" type="Panel" unique_id=1676371297]
+[node name="Number" type="Button" unique_id=1201390472]
 custom_minimum_size = Vector2(115, 115)
 anchors_preset = 8
 anchor_left = 0.5
