@@ -2,10 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bcdlu65kfbxo6" path="res://number.gd" id="1_r3wqd"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3wqd"]
+bg_color = Color(0, 0.72498626, 0.21578759, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_jcyp3"]
 font_size = 55
 
-[node name="Number" type="Button" unique_id=1201390472]
+[node name="Number" type="Button" unique_id=1201390472 groups=["button"]]
 custom_minimum_size = Vector2(115, 115)
 anchors_preset = 8
 anchor_left = 0.5
@@ -20,6 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_styles/disabled = SubResource("StyleBoxFlat_r3wqd")
 script = ExtResource("1_r3wqd")
 
 [node name="Label" type="Label" parent="." unique_id=581459631]
