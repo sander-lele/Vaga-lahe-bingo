@@ -7,10 +7,19 @@ extends Control
 var NumberScene = preload("res://number.tscn")
 
 var BallCount : int = 48
-var DrawnNumber : Array = []
+var DrawnNumber : Array[int] = []
+var CheckedNumbers : Array[int] = []
 var PossibleDraws : Array = range(1,76)
 #These are the numbers in each letter
 var BingoArray : Dictionary = {"B":[],"I":[],"N":[],"G":[],"O":[]} 
+
+var MidCheck : bool = false
+
+var DiagonalWin : bool = false
+var CornerWin : bool = false
+var MidWin : bool = false
+var FullWin : bool = false
+var JackpotWin : bool = false
 
 #These show the possible number range for each letter
 var BingoArrayRange : Dictionary = {"B":range(1,16),"I":range(16,31),"N":range(31,46),"G":range(46,61),"O":range(61,76)}
@@ -30,6 +39,7 @@ func button_pressed(inst : Button):
 	#$pressed.play()
 	if DrawnNumber.has(inst.number):
 		inst.disabled = true
+		CheckedNumbers.append(inst.number)
 		check_game_state()
 
 func button_hoverd(inst):
@@ -38,9 +48,25 @@ func button_hoverd(inst):
 		pass
 
 func check_game_state():
-	if DrawnNumber.count() <= 33:
+	var DrawnNumberCount : int = DrawnNumber.size()
+	if check_board_space(["N2"]) and MidWin == false and MidCheck == true:
+		MidWin = true
+		print("mid win")
+	if DrawnNumberCount <= 33:
 		#Checks for a corner game
-		check_board_space("B",0)
+		if check_board_space(["B0","B4","O4","O0"]) == true and CornerWin == false:
+			CornerWin = true
+			print("corner win")
+	if DrawnNumberCount <= 38:
+		#Checks for a diagonal game
+		if check_board_space(["B0","B4","I1","I3","N2","G1","G3","O0","O4"]) == true and DiagonalWin == false:
+			DiagonalWin = true
+			print("diagonal win")
+	if DrawnNumberCount <= 48:
+		#Checks for a full game
+		if check_board_space([]) and FullWin == false:
+			FullWin = true
+			print("big win")
 
 func _physics_process(_delta: float) -> void:
 	#Please please please remove later
@@ -69,11 +95,24 @@ func draw_board():
 func Update_info_panel():
 	$Split/InfoPanel/VBoxContainer/NumbersPanel.text = str(DrawnNumber)
 
-func check_board_space(Letter : string, Index : int):
-	if BingoArray[Letter][Index] ==:
+func check_board_space(Balls : Array[String]):
+	#This function accepts the a string that is a bingo letter and the index of the letters array.
+	#Returns true if a number is present in CheckedNumbers in the given position.
+	if Balls.size() != 0:
+		for Ball in Balls:
+			var BallLetter : String = Ball[0]
+			var BoardIndex : int = int(Ball[1])
+			if BingoArray[BallLetter][BoardIndex] not in CheckedNumbers:
+				return false
 		return true
 	else:
-		return false
+		#Can't be botherd to type in all of the board positions.
+		#Empty array asumes to check every single position
+		for key in BingoArray:
+			for i in 5:
+				if BingoArray[key][i] not in CheckedNumbers:
+					return false
+		return true
 
 func convert_number_to_bingo_ball(Num : int):
 	var Result : String = "" 
@@ -89,11 +128,16 @@ func convert_number_to_bingo_ball(Num : int):
 		Result = "O"+str(Num)
 	return Result
 
+var FirstNNumber : bool = false
+
 func _on_number_button_pressed() -> void:
 	#gets called when a ball is drawn
 	if BallCount >= 1:
 		BallCount -= 1
 		DrawnNumber.append(PossibleDraws[0])
+		#Chekcs for mid win
+		if PossibleDraws[0] >= 31 and PossibleDraws[0] <= 45 and MidCheck == false:
+			MidCheck = true
 		PossibleDraws.pop_front()
 		Update_info_panel()
 	else:

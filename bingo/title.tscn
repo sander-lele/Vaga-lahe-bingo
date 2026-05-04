@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://dtl2eck4qrax6"]
+
+[ext_resource type="Script" uid="uid://c2elbpiwq7put" path="res://title.gd" id="1_y7k74"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oyqm6"]
+font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_y7k74"]
+font_size = 30
+
+[node name="Title" type="Control" unique_id=2103161983]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y7k74")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=592202332]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=2051418313]
+layout_mode = 2
+text = "Very cool bingo for very cool people"
+label_settings = SubResource("LabelSettings_oyqm6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=1649619470]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=839226794]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "Play"
+
+[node name="GuideButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=1482487331]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "How to play"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=1430587923]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "Exit
+"
+
+[node name="GuidePanel" type="Panel" parent="." unique_id=1344505727]
+custom_minimum_size = Vector2(750, 350)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GuidePanel" unique_id=342659527]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GuidePanel/VBoxContainer" unique_id=2040790578]
+layout_mode = 2
+alignment = 2
+
+[node name="GuideClose" type="Button" parent="GuidePanel/VBoxContainer/HBoxContainer" unique_id=649897004]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "close"
+
+[node name="Label" type="Label" parent="GuidePanel/VBoxContainer" unique_id=1521072623]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "How to play:"
+label_settings = SubResource("LabelSettings_y7k74")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="GuidePanel/VBoxContainer" unique_id=1344927115]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "You can draw a total of 48 balls. Each ball is marked with a letter and a number.
+If one of the drawn balls match one of the numbers on your board, then you can mark it by clicking it.
+If the marked numbers match certain patterns you can games to earn points.
+The following games are:
+Middle square game: Won if the first N ball matches your middle square.
+Corner game: Won if the first 33 balls mark all of the center squares.
+Diagonal game: Won if the first 38 balls form 2 diagonals by marking 9 squares.
+Full game: Won if all the squares on the grid are marked. "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/GuideButton" to="." method="_on_guide_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="GuidePanel/VBoxContainer/HBoxContainer/GuideClose" to="." method="_on_guide_close_pressed"]
