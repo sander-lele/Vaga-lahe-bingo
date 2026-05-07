@@ -5,6 +5,9 @@
 [sub_resource type="LabelSettings" id="LabelSettings_ig7tw"]
 font_size = 30
 
+[sub_resource type="LabelSettings" id="LabelSettings_0xm2m"]
+font_size = 15
+
 [node name="Main" type="Control" unique_id=1382644672]
 layout_mode = 3
 anchors_preset = 15
@@ -26,9 +29,10 @@ grow_vertical = 2
 layout_mode = 2
 
 [node name="B" type="Panel" parent="Split/Board" unique_id=1821602668]
-custom_minimum_size = Vector2(115, 0)
+custom_minimum_size = Vector2(110, 660)
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Split/Board/B" unique_id=1599935553]
 layout_mode = 1
@@ -46,13 +50,24 @@ label_settings = SubResource("LabelSettings_ig7tw")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label2" type="Label" parent="Split/Board/B/VBoxContainer" unique_id=540762639]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+text = "(1 - 15)"
+label_settings = SubResource("LabelSettings_0xm2m")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="NumberHolder" type="VBoxContainer" parent="Split/Board/B/VBoxContainer" unique_id=301024233]
 layout_mode = 2
 theme_override_constants/separation = 5
+alignment = 1
 
 [node name="I" type="Panel" parent="Split/Board" unique_id=1754556489]
-custom_minimum_size = Vector2(115, 0)
+custom_minimum_size = Vector2(110, 660)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Split/Board/I" unique_id=1552949291]
 layout_mode = 1
@@ -70,13 +85,23 @@ label_settings = SubResource("LabelSettings_ig7tw")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label2" type="Label" parent="Split/Board/I/VBoxContainer" unique_id=1640895928]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+text = "(16 - 30)"
+label_settings = SubResource("LabelSettings_0xm2m")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="NumberHolder" type="VBoxContainer" parent="Split/Board/I/VBoxContainer" unique_id=1954587733]
 layout_mode = 2
 theme_override_constants/separation = 5
 
 [node name="N" type="Panel" parent="Split/Board" unique_id=774934907]
-custom_minimum_size = Vector2(115, 0)
+custom_minimum_size = Vector2(110, 660)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Split/Board/N" unique_id=22200791]
 layout_mode = 1
@@ -94,13 +119,23 @@ label_settings = SubResource("LabelSettings_ig7tw")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label2" type="Label" parent="Split/Board/N/VBoxContainer" unique_id=1389207403]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+text = "(31 - 45)"
+label_settings = SubResource("LabelSettings_0xm2m")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="NumberHolder" type="VBoxContainer" parent="Split/Board/N/VBoxContainer" unique_id=839792864]
 layout_mode = 2
 theme_override_constants/separation = 5
 
 [node name="G" type="Panel" parent="Split/Board" unique_id=437205515]
-custom_minimum_size = Vector2(115, 0)
+custom_minimum_size = Vector2(110, 660)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Split/Board/G" unique_id=2056854756]
 layout_mode = 1
@@ -118,13 +153,23 @@ label_settings = SubResource("LabelSettings_ig7tw")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label2" type="Label" parent="Split/Board/G/VBoxContainer" unique_id=135635352]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+text = "(46 - 60)"
+label_settings = SubResource("LabelSettings_0xm2m")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="NumberHolder" type="VBoxContainer" parent="Split/Board/G/VBoxContainer" unique_id=68020606]
 layout_mode = 2
 theme_override_constants/separation = 5
 
 [node name="O" type="Panel" parent="Split/Board" unique_id=805276487]
-custom_minimum_size = Vector2(115, 0)
+custom_minimum_size = Vector2(110, 660)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Split/Board/O" unique_id=1759774920]
 layout_mode = 1
@@ -139,6 +184,14 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "O"
 label_settings = SubResource("LabelSettings_ig7tw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Split/Board/O/VBoxContainer" unique_id=1961757409]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+text = "(61 - 75)"
+label_settings = SubResource("LabelSettings_0xm2m")
 horizontal_alignment = 1
 vertical_alignment = 1
 
