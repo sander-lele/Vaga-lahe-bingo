@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://6035fwdyjiyx"]
 
+[ext_resource type="Theme" uid="uid://cgjijnjoov88s" path="res://game_theme.tres" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://g7khyad5i3ft" path="res://main.gd" id="1_ig7tw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ig7tw"]
@@ -8,6 +9,9 @@ font_size = 30
 [sub_resource type="LabelSettings" id="LabelSettings_0xm2m"]
 font_size = 15
 
+[sub_resource type="LabelSettings" id="LabelSettings_h2yge"]
+font_size = 35
+
 [node name="Main" type="Control" unique_id=1382644672]
 layout_mode = 3
 anchors_preset = 15
@@ -15,6 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_0xm2m")
 script = ExtResource("1_ig7tw")
 
 [node name="Split" type="HBoxContainer" parent="." unique_id=1383429928]
@@ -210,20 +215,70 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
-[node name="NumbersPanel" type="Label" parent="Split/InfoPanel/VBoxContainer" unique_id=325369369]
+[node name="Balls" type="Label" parent="Split/InfoPanel/VBoxContainer" unique_id=1821674743]
+layout_mode = 2
+text = "Balls: "
+label_settings = SubResource("LabelSettings_h2yge")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NumbersPanel" type="FlowContainer" parent="Split/InfoPanel/VBoxContainer" unique_id=466262248]
 custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
 size_flags_vertical = 3
-autowrap_mode = 3
+alignment = 1
+last_wrap_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Split/InfoPanel/VBoxContainer" unique_id=1165076221]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+alignment = 1
+
+[node name="Corner" type="Panel" parent="Split/InfoPanel/VBoxContainer/HBoxContainer" unique_id=1317561896]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+tooltip_text = "[b]Corner Game:[/b]
+Win if all four corner squares are marked within the first 33 balls."
+
+[node name="Center" type="Panel" parent="Split/InfoPanel/VBoxContainer/HBoxContainer" unique_id=73401658]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+tooltip_text = "Center Square Game: Win if the first ball drawn matches your center square."
+
+[node name="Diagonal" type="Panel" parent="Split/InfoPanel/VBoxContainer/HBoxContainer" unique_id=994790635]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+tooltip_text = "Diagonal Game: Win if you complete two diagonals (9 squares total) within the first 38 balls."
+
+[node name="Full" type="Panel" parent="Split/InfoPanel/VBoxContainer/HBoxContainer" unique_id=192457889]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+tooltip_text = "Full Game: Win if all squares on the board are marked."
 
 [node name="BallCounter" type="Label" parent="Split/InfoPanel/VBoxContainer" unique_id=819352187]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+text = "Balls left: 48"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="NumberButton" type="Button" parent="Split/InfoPanel/VBoxContainer" unique_id=72965956]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 text = "LET IT RIDE!!!!"
+
+[node name="Settings" type="Button" parent="Split/InfoPanel" unique_id=67311195]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_bottom = 50.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
 
 [connection signal="pressed" from="Split/InfoPanel/VBoxContainer/NumberButton" to="." method="_on_number_button_pressed"]

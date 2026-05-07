@@ -5,6 +5,7 @@ extends Control
 @export var NumbersLabel : Label
 
 var NumberScene = preload("res://number.tscn")
+var BallLabelScene = preload("res://BallLabel.tscn")
 
 var BallCount : int = 48
 var DrawnNumber : Array[int] = []
@@ -34,6 +35,10 @@ func _ready() -> void:
 		if buttons[i].is_connected("pressed", Callable(self,"button_pressed")) == false or buttons[i].is_connected("mouse_entered", Callable(self,"button_hoverd")) == false:
 			buttons[i].pressed.connect(button_pressed.bind(buttons[i]))
 			buttons[i].mouse_entered.connect(button_hoverd.bind(buttons[i]))
+			#buttons[i].get_child(1).text_submitted.connect(button_line_submitted.bind(buttons[i]))
+
+func button_line_submitted(NewNumber : String,Inst : Button):
+	print(Inst.get_index())
 
 func button_pressed(inst : Button):
 	#$pressed.play()
@@ -80,6 +85,8 @@ func create_board():
 			BingoArrayRange[key].shuffle()
 			BingoArray[key].append(BingoArrayRange[key][0])
 			BingoArrayRange[key].pop_front()
+	#resets the range array for further use
+	BingoArrayRange = {"B":range(1,16),"I":range(16,31),"N":range(31,46),"G":range(46,61),"O":range(61,76)}
 
 func reset_range_array():
 	BingoArrayRange = {"B":range(1,16),"I":range(16,31),"N":range(31,46),"G":range(46,61),"O":range(61,76)}
@@ -89,11 +96,14 @@ func draw_board():
 	for key in BingoArray:
 		for i in 5:
 			var NumberInstance = NumberScene.instantiate()
-			NumberInstance.number = BingoArray[key][i]
+			NumberInstance.Number = BingoArray[key][i]
+			NumberInstance.NumberMin = BingoArrayRange[key][0]
+			NumberInstance.NumberMax = BingoArrayRange[key][-1]
 			get_node("Split/Board/"+str(key)+"/VBoxContainer/NumberHolder").add_child(NumberInstance)
 
+
 func Update_info_panel():
-	$Split/InfoPanel/VBoxContainer/NumbersPanel.text = str(DrawnNumber)
+	pass
 
 func check_board_space(Balls : Array[String]):
 	#This function accepts the a string that is a bingo letter and the index of the letters array.
@@ -135,10 +145,15 @@ func _on_number_button_pressed() -> void:
 	if BallCount >= 1:
 		BallCount -= 1
 		DrawnNumber.append(PossibleDraws[0])
+		#adds a label to the numbers panel
+		var BallLabelInst : Label = BallLabelScene.instantiate()
+		BallLabelInst.text = convert_number_to_bingo_ball(PossibleDraws[0])
+		$Split/InfoPanel/VBoxContainer/NumbersPanel.add_child(BallLabelInst)
 		#Chekcs for mid win
 		if PossibleDraws[0] >= 31 and PossibleDraws[0] <= 45 and MidCheck == false:
 			MidCheck = true
 		PossibleDraws.pop_front()
 		Update_info_panel()
-	else:
+	if BallCount <= 0:
 		$Split/InfoPanel/VBoxContainer/NumberButton.disabled = true
+	$Split/InfoPanel/VBoxContainer/BallCounter.text = "Balls left: %d" % (BallCount)

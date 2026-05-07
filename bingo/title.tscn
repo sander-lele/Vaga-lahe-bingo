@@ -8,6 +8,241 @@ font_size = 36
 [sub_resource type="LabelSettings" id="LabelSettings_y7k74"]
 font_size = 30
 
+[sub_resource type="LabelSettings" id="LabelSettings_kpexm"]
+paragraph_spacing = 10.0
+
+[sub_resource type="Animation" id="Animation_y7k74"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/VBoxContainer/PlayButton:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/VBoxContainer/ExitButton:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/VBoxContainer/GuideButton:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer/VBoxContainer/PlayRandom:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VBoxContainer/VBoxContainer/PlaySelf:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("VBoxContainer/VBoxContainer/PlayBack:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(-0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_oyqm6"]
+resource_name = "set_normal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/VBoxContainer/PlayButton:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/VBoxContainer/ExitButton:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/VBoxContainer/GuideButton:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer/VBoxContainer/PlayRandom:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VBoxContainer/VBoxContainer/PlaySelf:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("VBoxContainer/VBoxContainer/PlayBack:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_kpexm"]
+resource_name = "set_play"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/VBoxContainer/PlayButton:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/VBoxContainer/GuideButton:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/VBoxContainer/ExitButton:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer/VBoxContainer/PlayRandom:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VBoxContainer/VBoxContainer/PlaySelf:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("VBoxContainer/VBoxContainer/PlayBack:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3xoar"]
+_data = {
+&"RESET": SubResource("Animation_y7k74"),
+&"set_normal": SubResource("Animation_oyqm6"),
+&"set_play": SubResource("Animation_kpexm")
+}
+
 [node name="Title" type="Control" unique_id=2103161983]
 layout_mode = 3
 anchors_preset = 15
@@ -59,18 +294,46 @@ size_flags_vertical = 3
 text = "Exit
 "
 
+[node name="PlayRandom" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=230040028]
+visible = false
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "Random
+"
+
+[node name="PlaySelf" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=271373689]
+visible = false
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "Decide
+"
+
+[node name="PlayBack" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=1252958274]
+visible = false
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "Back
+"
+
 [node name="GuidePanel" type="Panel" parent="." unique_id=1344505727]
-custom_minimum_size = Vector2(750, 350)
+visible = false
+custom_minimum_size = Vector2(750, 450)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -375.0
+offset_top = -233.0
+offset_right = 375.0
+offset_bottom = 233.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -100,21 +363,29 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="GuidePanel/VBoxContainer" unique_id=1344927115]
-custom_minimum_size = Vector2(500, 0)
+custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
-text = "You can draw a total of 48 balls. Each ball is marked with a letter and a number.
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "A total of 48 balls are drawn. Each ball is labeled with a letter and a number.
 If one of the drawn balls match one of the numbers on your board, then you can mark it by clicking it.
-If the marked numbers match certain patterns you can games to earn points.
+You earn points by completing specific patterns.
 The following games are:
-Middle square game: Won if the first N ball matches your middle square.
-Corner game: Won if the first 33 balls mark all of the center squares.
-Diagonal game: Won if the first 38 balls form 2 diagonals by marking 9 squares.
-Full game: Won if all the squares on the grid are marked. "
-horizontal_alignment = 1
+Center Square Game: Win if the first ball drawn matches your center square.
+Corner Game: Win if all four corner squares are marked within the first 33 balls.
+Diagonal Game: Win if you complete two diagonals (9 squares total) within the first 38 balls.
+Full Game: Win if all squares on the board are marked."
+label_settings = SubResource("LabelSettings_kpexm")
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1772917371]
+libraries/ = SubResource("AnimationLibrary_3xoar")
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/GuideButton" to="." method="_on_guide_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/PlayRandom" to="." method="_on_play_random_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/PlaySelf" to="." method="_on_play_self_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/PlayBack" to="." method="_on_play_back_pressed"]
 [connection signal="pressed" from="GuidePanel/VBoxContainer/HBoxContainer/GuideClose" to="." method="_on_guide_close_pressed"]

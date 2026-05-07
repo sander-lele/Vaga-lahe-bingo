@@ -11,16 +11,26 @@ config_version=5
 [application]
 
 config/name="Bingo"
+run/main_scene="uid://dtl2eck4qrax6"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*uid://ctubk1bfb7gyg"
 
 [display]
 
 window/size/viewport_height=660
+window/stretch/mode="canvas_items"
 
 [global_group]
 
 button=""
+
+[gui]
+
+timers/stretch/mode="disabled"
 
 [input]
 

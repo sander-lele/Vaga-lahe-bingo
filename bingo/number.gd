@@ -1,12 +1,13 @@
 extends Button
 
-var number : int = 0
-
+var Number : int = 0
+var NumberMin : int = 0
+var NumberMax : int = 0
 
 func _ready() -> void:
-	$Label.text = str(number)
+	$Self.min_value = NumberMin
+	$Self.max_value = NumberMax
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _show_number() -> void:
+	$Self.visible = false
+	$Label.text = str(Number)

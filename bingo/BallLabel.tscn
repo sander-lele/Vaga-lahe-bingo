@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bjdfjfttfq1ql"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cp0lm"]
+bg_color = Color(0.29219002, 0.29219005, 0.29218993, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_jy5yv"]
+font_size = 36
+outline_size = 14
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" unique_id=945740990]
+custom_minimum_size = Vector2(80, 50)
+offset_right = 75.0
+offset_bottom = 50.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_cp0lm")
+text = "I43"
+label_settings = SubResource("LabelSettings_jy5yv")
+horizontal_alignment = 1
+vertical_alignment = 1
