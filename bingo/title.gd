@@ -5,7 +5,7 @@ extends Control
 
 
 func _on_play_button_pressed() -> void:
-	$AnimationPlayer.play("set_play")
+	$ButtonSets.play("set_play")
 
 
 func _on_exit_button_pressed() -> void:
@@ -21,12 +21,20 @@ func _on_guide_close_pressed() -> void:
 
 
 func _on_play_random_pressed() -> void:
-	get_tree().change_scene_to_file("res://main.tscn")
+	Global.SelfGen = true
+	$AnimationPlayer.play("play")
 
 
 func _on_play_self_pressed() -> void:
-	pass # Replace with function body.
+	Global.SelfGen = true
+	$AnimationPlayer.play("play")
 
 
 func _on_play_back_pressed() -> void:
-	$AnimationPlayer.play("set_normal")
+	$ButtonSets.play("set_normal")
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	match(anim_name):
+		"play":
+			get_tree().change_scene_to_file("res://main.tscn")

@@ -14,6 +14,8 @@ var PossibleDraws : Array = range(1,76)
 #These are the numbers in each letter
 var BingoArray : Dictionary = {"B":[],"I":[],"N":[],"G":[],"O":[]} 
 
+var AutoSelect : bool = false
+
 var MidCheck : bool = false
 
 var DiagonalWin : bool = false
@@ -35,10 +37,10 @@ func _ready() -> void:
 		if buttons[i].is_connected("pressed", Callable(self,"button_pressed")) == false or buttons[i].is_connected("mouse_entered", Callable(self,"button_hoverd")) == false:
 			buttons[i].pressed.connect(button_pressed.bind(buttons[i]))
 			buttons[i].mouse_entered.connect(button_hoverd.bind(buttons[i]))
-			#buttons[i].get_child(1).text_submitted.connect(button_line_submitted.bind(buttons[i]))
+			buttons[i].get_child(1).text_submitted.connect(button_line_submitted.bind(buttons[i]))
 
-func button_line_submitted(NewNumber : String,Inst : Button):
-	print(Inst.get_index())
+func button_line_submitted(Text : String,Inst : Button):
+	print(Text)
 
 func button_pressed(inst : Button):
 	#$pressed.play()
@@ -73,10 +75,6 @@ func check_game_state():
 			FullWin = true
 			print("big win")
 
-func _physics_process(_delta: float) -> void:
-	#Please please please remove later
-	if Input.is_action_just_pressed("debug"):
-		get_tree().reload_current_scene()
 
 func create_board():
 	#Shuffels the range array
@@ -97,8 +95,6 @@ func draw_board():
 		for i in 5:
 			var NumberInstance = NumberScene.instantiate()
 			NumberInstance.Number = BingoArray[key][i]
-			NumberInstance.NumberMin = BingoArrayRange[key][0]
-			NumberInstance.NumberMax = BingoArrayRange[key][-1]
 			get_node("Split/Board/"+str(key)+"/VBoxContainer/NumberHolder").add_child(NumberInstance)
 
 
@@ -157,3 +153,21 @@ func _on_number_button_pressed() -> void:
 	if BallCount <= 0:
 		$Split/InfoPanel/VBoxContainer/NumberButton.disabled = true
 	$Split/InfoPanel/VBoxContainer/BallCounter.text = "Balls left: %d" % (BallCount)
+
+
+func _on_auto_select_toggled(toggled_on: bool) -> void:
+	AutoSelect = toggled_on
+	if AutoSelect == true:
+		$Settings/Panel/VBoxContainer/AutoSelect.text = "Auto select squares: On"
+	else:
+		$Settings/Panel/VBoxContainer/AutoSelect.text = "Auto select squares: Off"
+
+
+func _on_button_pressed() -> void:
+	$Settings.visible = false
+	if AutoSelect == true:
+		#Goes through the all the buttons to check all of them.
+		for Number in get_tree().get_nodes_in_group("button"):
+			if Number.Number in DrawnNumber:
+				Number.disabled = true
+				CheckedNumbers.append(Number.Number)
