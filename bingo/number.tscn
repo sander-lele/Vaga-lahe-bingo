@@ -3,24 +3,26 @@
 [ext_resource type="Script" uid="uid://bcdlu65kfbxo6" path="res://number.gd" id="1_r3wqd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3wqd"]
-bg_color = Color(0, 0.72498626, 0.21578759, 1)
+bg_color = Color(0.3864755, 0.86386085, 0.25559813, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.95686275, 0.8352941, 0.39607844, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
-[sub_resource type="LabelSettings" id="LabelSettings_jcyp3"]
+[sub_resource type="LabelSettings" id="LabelSettings_r3wqd"]
 font_size = 55
+outline_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 1)
+stacked_shadow_count = 1
+stacked_shadow_0/offset = Vector2(2, 1)
+stacked_shadow_0/outline_size = 3
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r3wqd"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8rsqo"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t2wgh"]
-
-[sub_resource type="Theme" id="Theme_r3wqd"]
-LineEdit/font_sizes/font_size = 40
-LineEdit/styles/focus = SubResource("StyleBoxEmpty_r3wqd")
-LineEdit/styles/normal = SubResource("StyleBoxEmpty_8rsqo")
-LineEdit/styles/read_only = SubResource("StyleBoxEmpty_t2wgh")
-
-[node name="Number" type="Button" unique_id=1201390472 groups=["button"]]
+[node name="Number" type="Button" unique_id=1201390472 node_paths=PackedStringArray("NumberLabel") groups=["button"]]
 custom_minimum_size = Vector2(110, 110)
 anchors_preset = 8
 anchor_left = 0.5
@@ -37,6 +39,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_styles/disabled = SubResource("StyleBoxFlat_r3wqd")
 script = ExtResource("1_r3wqd")
+NumberLabel = NodePath("Label")
 
 [node name="Label" type="Label" parent="." unique_id=581459631]
 layout_mode = 1
@@ -45,28 +48,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-label_settings = SubResource("LabelSettings_jcyp3")
+text = "3"
+label_settings = SubResource("LabelSettings_r3wqd")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Self" type="LineEdit" parent="." unique_id=1844870144]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -25.0
-offset_top = -25.0
-offset_right = 25.0
-offset_bottom = 24.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_r3wqd")
-alignment = 1
-max_length = 2
-context_menu_enabled = false
-emoji_menu_enabled = false
-shortcut_keys_enabled = false
-middle_mouse_paste_enabled = false
-flat = true
-select_all_on_focus = true
-virtual_keyboard_type = 2

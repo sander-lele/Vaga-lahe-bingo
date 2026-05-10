@@ -2,9 +2,13 @@
 
 [ext_resource type="Theme" uid="uid://cgjijnjoov88s" path="res://game_theme.tres" id="1_oyqm6"]
 [ext_resource type="Script" uid="uid://c2elbpiwq7put" path="res://title.gd" id="1_y7k74"]
+[ext_resource type="Texture2D" uid="uid://ud6kxtqx5cn3" path="res://Assets/background.png" id="3_kpexm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_oyqm6"]
 font_size = 36
+stacked_shadow_count = 1
+stacked_shadow_0/offset = Vector2(1, 2)
+stacked_shadow_0/outline_size = 5
 
 [sub_resource type="LabelSettings" id="LabelSettings_y7k74"]
 font_size = 30
@@ -17,11 +21,11 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/VBoxContainer/PlayButton:visible")
+tracks/0/path = NodePath("VBoxContainer/ButtonSets/Normal:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.0009999999),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -29,59 +33,23 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("VBoxContainer/VBoxContainer/ExitButton:visible")
+tracks/1/path = NodePath("VBoxContainer/ButtonSets/Play:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.0009999999),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("VBoxContainer/VBoxContainer/GuideButton:visible")
+tracks/2/path = NodePath("VBoxContainer/ButtonSets/Self:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("VBoxContainer/VBoxContainer/PlayRandom:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("VBoxContainer/VBoxContainer/PlaySelf:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("VBoxContainer/VBoxContainer/PlayBack:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(-0.033333335),
+"times": PackedFloat32Array(0.0009999999),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
@@ -92,31 +60,31 @@ resource_name = "set_normal"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/VBoxContainer/PlayButton:visible")
+tracks/0/path = NodePath("VBoxContainer/ButtonSets/Play:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("VBoxContainer/VBoxContainer/ExitButton:visible")
+tracks/1/path = NodePath("VBoxContainer/ButtonSets/Self:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("VBoxContainer/VBoxContainer/GuideButton:visible")
+tracks/2/path = NodePath("VBoxContainer/ButtonSets/Normal:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -124,42 +92,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("VBoxContainer/VBoxContainer/PlayRandom:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("VBoxContainer/VBoxContainer/PlaySelf:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("VBoxContainer/VBoxContainer/PlayBack:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_kpexm"]
@@ -167,7 +99,7 @@ resource_name = "set_play"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/VBoxContainer/PlayButton:visible")
+tracks/0/path = NodePath("VBoxContainer/ButtonSets/Normal:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -179,7 +111,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("VBoxContainer/VBoxContainer/GuideButton:visible")
+tracks/1/path = NodePath("VBoxContainer/ButtonSets/Self:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -191,7 +123,46 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("VBoxContainer/VBoxContainer/ExitButton:visible")
+tracks/2/path = NodePath("VBoxContainer/ButtonSets/Play:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_0824t"]
+resource_name = "set_self"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/ButtonSets/Self:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/ButtonSets/Play:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/ButtonSets/Normal:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -200,48 +171,13 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("VBoxContainer/VBoxContainer/PlayRandom:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("VBoxContainer/VBoxContainer/PlaySelf:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("VBoxContainer/VBoxContainer/PlayBack:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3xoar"]
 _data = {
 &"RESET": SubResource("Animation_y7k74"),
 &"set_normal": SubResource("Animation_oyqm6"),
-&"set_play": SubResource("Animation_kpexm")
+&"set_play": SubResource("Animation_kpexm"),
+&"set_self": SubResource("Animation_0824t")
 }
 
 [sub_resource type="Animation" id="Animation_3xoar"]
@@ -334,7 +270,7 @@ _data = {
 &"start": SubResource("Animation_7lgly")
 }
 
-[node name="Title" type="Control" unique_id=2103161983]
+[node name="Title" type="Control" unique_id=2103161983 node_paths=PackedStringArray("ErrorLabel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -343,6 +279,20 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_oyqm6")
 script = ExtResource("1_y7k74")
+ErrorLabel = NodePath("VBoxContainer/ButtonSets/Self/SelfInfo/VBox/ErrorLabel")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=129490526]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -60.0
+offset_right = 151.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_kpexm")
+stretch_mode = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=592202332]
 layout_mode = 1
@@ -351,67 +301,170 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
+theme_override_constants/separation = 30
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=2051418313]
+[node name="Gap" type="Control" parent="VBoxContainer" unique_id=1205760039]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer" unique_id=929807878]
+custom_minimum_size = Vector2(800, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/Panel" unique_id=2051418313]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -25.0
+offset_right = 576.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Very cool bingo for very cool people"
 label_settings = SubResource("LabelSettings_oyqm6")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=1649619470]
-custom_minimum_size = Vector2(0, 200)
+[node name="ButtonSets" type="VBoxContainer" parent="VBoxContainer" unique_id=1649619470]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 5
+
+[node name="Normal" type="VBoxContainer" parent="VBoxContainer/ButtonSets" unique_id=1063366453]
+visible = false
 layout_mode = 2
 
-[node name="PlayButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=839226794]
-custom_minimum_size = Vector2(200, 0)
+[node name="PlayButton" type="Button" parent="VBoxContainer/ButtonSets/Normal" unique_id=839226794]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 3
+size_flags_vertical = 4
 text = "Play"
 
-[node name="GuideButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=1482487331]
-custom_minimum_size = Vector2(200, 0)
+[node name="GuideButton" type="Button" parent="VBoxContainer/ButtonSets/Normal" unique_id=1482487331]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 3
+size_flags_vertical = 4
 text = "How to play"
 
-[node name="ExitButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=1430587923]
-custom_minimum_size = Vector2(200, 0)
+[node name="ExitButton" type="Button" parent="VBoxContainer/ButtonSets/Normal" unique_id=1430587923]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 3
+size_flags_vertical = 4
 text = "Exit
 "
 
-[node name="PlayRandom" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=230040028]
+[node name="Play" type="VBoxContainer" parent="VBoxContainer/ButtonSets" unique_id=1976080940]
 visible = false
-custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="PlayRandom" type="Button" parent="VBoxContainer/ButtonSets/Play" unique_id=230040028]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 3
+size_flags_vertical = 4
 text = "Random
 "
 
-[node name="PlaySelf" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=271373689]
-visible = false
-custom_minimum_size = Vector2(200, 0)
+[node name="PlaySelf" type="Button" parent="VBoxContainer/ButtonSets/Play" unique_id=271373689]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 3
+size_flags_vertical = 4
 text = "Decide
 "
 
-[node name="PlayBack" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=1252958274]
-visible = false
-custom_minimum_size = Vector2(200, 0)
+[node name="PlayBack" type="Button" parent="VBoxContainer/ButtonSets/Play" unique_id=1252958274]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 3
+size_flags_vertical = 4
 text = "Back
 "
+
+[node name="Self" type="VBoxContainer" parent="VBoxContainer/ButtonSets" unique_id=907361449]
+layout_mode = 2
+
+[node name="SelfInfo" type="Panel" parent="VBoxContainer/ButtonSets/Self" unique_id=1536721201]
+custom_minimum_size = Vector2(470, 160)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/ButtonSets/Self/SelfInfo" unique_id=167088798]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="InfoLabel" type="Label" parent="VBoxContainer/ButtonSets/Self/SelfInfo/VBox" unique_id=404923924]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+text = "Here you can add bingo balls. Simply Input a number and then press play. You can add a total of 8 balls.
+Possible ranges:
+B: (1-15), I: (16-30) N: (31-45), G: (46-60), O: (61-75)."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="AmountLabel" type="Label" parent="VBoxContainer/ButtonSets/Self/SelfInfo/VBox" unique_id=781410768]
+layout_mode = 2
+size_flags_vertical = 0
+text = "You can add 8 more balls."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ErrorLabel" type="Label" parent="VBoxContainer/ButtonSets/Self/SelfInfo/VBox" unique_id=699504514]
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+text = "Value must be something i dunno"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelfInsert" type="LineEdit" parent="VBoxContainer/ButtonSets/Self" unique_id=2120890125]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+placeholder_text = "Inset a number eg. 12"
+alignment = 1
+max_length = 3
+keep_editing_on_text_submit = true
+middle_mouse_paste_enabled = false
+
+[node name="PanelHolder" type="HFlowContainer" parent="VBoxContainer/ButtonSets/Self" unique_id=1585762755]
+custom_minimum_size = Vector2(500, 117.27)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="SelfBack" type="Button" parent="VBoxContainer/ButtonSets/Self" unique_id=1873726278]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Back"
+
+[node name="SelfPlay" type="Button" parent="VBoxContainer/ButtonSets/Self" unique_id=1716457172]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+disabled = true
+text = "Play"
 
 [node name="GuidePanel" type="Panel" parent="." unique_id=1344505727]
 visible = false
@@ -483,11 +536,14 @@ autoplay = &"start"
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/GuideButton" to="." method="_on_guide_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/PlayRandom" to="." method="_on_play_random_pressed"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/PlaySelf" to="." method="_on_play_self_pressed"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/PlayBack" to="." method="_on_play_back_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonSets/Normal/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonSets/Normal/GuideButton" to="." method="_on_guide_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonSets/Normal/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonSets/Play/PlayRandom" to="." method="_on_play_random_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonSets/Play/PlaySelf" to="." method="_on_play_self_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonSets/Play/PlayBack" to="." method="_on_play_back_pressed"]
+[connection signal="text_submitted" from="VBoxContainer/ButtonSets/Self/SelfInsert" to="." method="_on_self_insert_text_submitted"]
+[connection signal="pressed" from="VBoxContainer/ButtonSets/Self/SelfBack" to="." method="_on_self_back_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonSets/Self/SelfPlay" to="." method="_on_self_play_pressed"]
 [connection signal="pressed" from="GuidePanel/VBoxContainer/HBoxContainer/GuideClose" to="." method="_on_guide_close_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

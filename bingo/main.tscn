@@ -2,16 +2,106 @@
 
 [ext_resource type="Theme" uid="uid://cgjijnjoov88s" path="res://game_theme.tres" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://g7khyad5i3ft" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://cl6gcgon0gr4g" path="res://Assets/CornerGame.png" id="3_1bvp3"]
 [ext_resource type="Script" uid="uid://c1jsd2vk6khjn" path="res://settings.gd" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://dyun2k4yimohq" path="res://Assets/MiddleGame.png" id="4_272bh"]
+[ext_resource type="Texture2D" uid="uid://cwpwovhbbrk83" path="res://Assets/DiagonalGame.png" id="5_5vw27"]
+[ext_resource type="Texture2D" uid="uid://bi4pgnpp6qre6" path="res://Assets/FullGame.png" id="6_kek77"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ig7tw"]
 font_size = 45
+stacked_shadow_count = 1
+stacked_shadow_0/offset = Vector2(2, 1)
+stacked_shadow_0/outline_size = 3
 
 [sub_resource type="LabelSettings" id="LabelSettings_0xm2m"]
 font_size = 18
+stacked_shadow_count = 1
+stacked_shadow_0/offset = Vector2(2, 1)
+stacked_shadow_0/outline_size = 3
 
 [sub_resource type="LabelSettings" id="LabelSettings_h2yge"]
 font_size = 35
+stacked_shadow_count = 1
+stacked_shadow_0/offset = Vector2(2, 1)
+stacked_shadow_0/outline_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_272bh"]
+bg_color = Color(0.73333335, 0.36862746, 0.14509805, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.92941177, 0.6901961, 0.28235295, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vw27"]
+bg_color = Color(0.73333335, 0.36862746, 0.14509805, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.92941177, 0.6901961, 0.28235295, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kek77"]
+bg_color = Color(0.73333335, 0.36862746, 0.14509805, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.92941177, 0.6901961, 0.28235295, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_272bh"]
+stacked_shadow_count = 1
+stacked_shadow_0/offset = Vector2(2, 1)
+stacked_shadow_0/outline_size = 3
+
+[sub_resource type="FontFile" id="FontFile_272bh"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/32/0/ascent = 0.0
+cache/0/32/0/descent = 0.0
+cache/0/32/0/underline_position = 0.0
+cache/0/32/0/underline_thickness = 0.0
+cache/0/32/0/scale = 1.0
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+cache/0/28/0/ascent = 0.0
+cache/0/28/0/descent = 0.0
+cache/0/28/0/underline_position = 0.0
+cache/0/28/0/underline_thickness = 0.0
+cache/0/28/0/scale = 1.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xm2m"]
 bg_color = Color(0.73333335, 0.36862746, 0.14509805, 1)
@@ -27,6 +117,11 @@ corner_radius_bottom_left = 25
 
 [sub_resource type="LabelSettings" id="LabelSettings_1bvp3"]
 font_size = 32
+shadow_color = Color(0, 0, 0, 0.7058824)
+shadow_offset = Vector2(2, 1)
+stacked_shadow_count = 1
+stacked_shadow_0/offset = Vector2(2, 1)
+stacked_shadow_0/outline_size = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2yge"]
 bg_color = Color(0.92179435, 0.665621, 0.1906329, 1)
@@ -65,6 +160,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1152, 660)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Settings/AnimationPlayer/ColorRect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_1bvp3"]
@@ -386,38 +493,113 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 alignment = 1
 
-[node name="Corner" type="Panel" parent="Split/InfoPanel/VBoxContainer/HBoxContainer" unique_id=1317561896]
-custom_minimum_size = Vector2(100, 0)
+[node name="Corner" type="Panel" parent="Split/InfoPanel/VBoxContainer/HBoxContainer" unique_id=241725295]
+custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_272bh")
+
+[node name="TextureRect" type="TextureRect" parent="Split/InfoPanel/VBoxContainer/HBoxContainer/Corner" unique_id=1009544054]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -26.0
+offset_right = 26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
 tooltip_text = "[b]Corner Game:[/b]
 Win if all four corner squares are marked within the first 33 balls."
+texture = ExtResource("3_1bvp3")
+stretch_mode = 3
 
-[node name="Center" type="Panel" parent="Split/InfoPanel/VBoxContainer/HBoxContainer" unique_id=73401658]
-custom_minimum_size = Vector2(100, 0)
+[node name="Middle" type="Panel" parent="Split/InfoPanel/VBoxContainer/HBoxContainer" unique_id=1300872916]
+custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
-tooltip_text = "Center Square Game: Win if the first ball drawn matches your center square."
+theme_override_styles/panel = SubResource("StyleBoxFlat_5vw27")
 
-[node name="Diagonal" type="Panel" parent="Split/InfoPanel/VBoxContainer/HBoxContainer" unique_id=994790635]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-tooltip_text = "Diagonal Game: Win if you complete two diagonals (9 squares total) within the first 38 balls."
+[node name="TextureRect" type="TextureRect" parent="Split/InfoPanel/VBoxContainer/HBoxContainer/Middle" unique_id=331304332]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -26.0
+offset_right = 26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "[b]Corner Game:[/b]
+Win if all four corner squares are marked within the first 33 balls."
+texture = ExtResource("4_272bh")
+stretch_mode = 3
 
-[node name="Full" type="Panel" parent="Split/InfoPanel/VBoxContainer/HBoxContainer" unique_id=192457889]
-custom_minimum_size = Vector2(100, 0)
+[node name="Diagonal" type="Panel" parent="Split/InfoPanel/VBoxContainer/HBoxContainer" unique_id=477564252]
+custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
-tooltip_text = "Full Game: Win if all squares on the board are marked."
+theme_override_styles/panel = SubResource("StyleBoxFlat_kek77")
+
+[node name="TextureRect" type="TextureRect" parent="Split/InfoPanel/VBoxContainer/HBoxContainer/Diagonal" unique_id=838577176]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -26.0
+offset_right = 26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "[b]Corner Game:[/b]
+Win if all four corner squares are marked within the first 33 balls."
+texture = ExtResource("5_5vw27")
+stretch_mode = 3
+
+[node name="Full" type="Panel" parent="Split/InfoPanel/VBoxContainer/HBoxContainer" unique_id=1360963028]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Split/InfoPanel/VBoxContainer/HBoxContainer/Full" unique_id=1295754608]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -26.0
+offset_right = 26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "[b]Corner Game:[/b]
+Win if all four corner squares are marked within the first 33 balls."
+texture = ExtResource("6_kek77")
+stretch_mode = 3
 
 [node name="BallCounter" type="Label" parent="Split/InfoPanel/VBoxContainer" unique_id=819352187]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 text = "Balls left: 48"
+label_settings = SubResource("LabelSettings_272bh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="NumberButton" type="Button" parent="Split/InfoPanel/VBoxContainer" unique_id=72965956]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
-text = "LET IT RIDE!!!!"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = SubResource("FontFile_272bh")
+theme_override_font_sizes/font_size = 28
+text = "Draw ball!!!!!!!"
 
 [node name="Settings" type="Button" parent="Split/InfoPanel" unique_id=67311195]
 custom_minimum_size = Vector2(100, 50)
@@ -430,6 +612,8 @@ offset_bottom = 50.0
 grow_horizontal = 0
 size_flags_horizontal = 8
 size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
 text = "Settings"
 
 [node name="Settings" type="Control" parent="." unique_id=1261281871]

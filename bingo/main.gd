@@ -12,12 +12,12 @@ var DrawnNumber : Array[int] = []
 var CheckedNumbers : Array[int] = []
 var PossibleDraws : Array = range(1,76)
 #These are the numbers in each letter
-var BingoArray : Dictionary = {"B":[],"I":[],"N":[],"G":[],"O":[]} 
+var BingoArray : Dictionary = {"B":[0,0,0,0,0],"I":[0,0,0,0,0],"N":[0,0,0,0,0],"G":[0,0,0,0,0],"O":[0,0,0,0,0]} 
 
 var AutoSelect : bool = false
+var SelfInputedNumbers : Dictionary[int, Button] = {}
 
 var MidCheck : bool = false
-
 var DiagonalWin : bool = false
 var CornerWin : bool = false
 var MidWin : bool = false
@@ -28,6 +28,11 @@ var JackpotWin : bool = false
 var BingoArrayRange : Dictionary = {"B":range(1,16),"I":range(16,31),"N":range(31,46),"G":range(46,61),"O":range(61,76)}
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if Global.SelfGen == true:
+		for SelfNum : int in Global.SelectedValues:
+			var SelfBall = convert_number_to_bingo_ball(SelfNum)
+			var SelfLetter = SelfBall[0]
+			BingoArray[SelfLetter][randi_range(0,4)] = SelfNum
 	create_board()
 	draw_board()
 	PossibleDraws.shuffle()
@@ -37,16 +42,13 @@ func _ready() -> void:
 		if buttons[i].is_connected("pressed", Callable(self,"button_pressed")) == false or buttons[i].is_connected("mouse_entered", Callable(self,"button_hoverd")) == false:
 			buttons[i].pressed.connect(button_pressed.bind(buttons[i]))
 			buttons[i].mouse_entered.connect(button_hoverd.bind(buttons[i]))
-			buttons[i].get_child(1).text_submitted.connect(button_line_submitted.bind(buttons[i]))
 
-func button_line_submitted(Text : String,Inst : Button):
-	print(Text)
 
 func button_pressed(inst : Button):
 	#$pressed.play()
-	if DrawnNumber.has(inst.number):
+	if DrawnNumber.has(inst.Number):
 		inst.disabled = true
-		CheckedNumbers.append(inst.number)
+		CheckedNumbers.append(inst.Number)
 		check_game_state()
 
 func button_hoverd(inst):
@@ -56,33 +58,42 @@ func button_hoverd(inst):
 
 func check_game_state():
 	var DrawnNumberCount : int = DrawnNumber.size()
-	if check_board_space(["N2"]) and MidWin == false and MidCheck == true:
-		MidWin = true
-		print("mid win")
+	if check_board_space(["N2"]) and MidWin == true:
+		$Split/InfoPanel/VBoxContainer/HBoxContainer/Middle.get_theme_stylebox("panel").bg_color = Color(0.059, 0.859, 0.016)
 	if DrawnNumberCount <= 33:
 		#Checks for a corner game
 		if check_board_space(["B0","B4","O4","O0"]) == true and CornerWin == false:
 			CornerWin = true
-			print("corner win")
+			print("win")
+			$Split/InfoPanel/VBoxContainer/HBoxContainer/Corner.get_theme_stylebox("panel").bg_color = Color(0.059, 0.859, 0.016)
+	else:
+		$Split/InfoPanel/VBoxContainer/HBoxContainer/Corner.get_theme_stylebox("panel").bg_color = Color.GRAY
+		$Split/InfoPanel/VBoxContainer/HBoxContainer/Middle.get_theme_stylebox("panel").bg_color = Color.GRAY
 	if DrawnNumberCount <= 38:
 		#Checks for a diagonal game
 		if check_board_space(["B0","B4","I1","I3","N2","G1","G3","O0","O4"]) == true and DiagonalWin == false:
 			DiagonalWin = true
-			print("diagonal win")
+			$Split/InfoPanel/VBoxContainer/HBoxContainer/Diagonal.get_theme_stylebox("panel").bg_color = Color(0.059, 0.859, 0.016)
+	else:
+		$Split/InfoPanel/VBoxContainer/HBoxContainer/Diagonal.get_theme_stylebox("panel").bg_color = Color.GRAY
 	if DrawnNumberCount <= 48:
 		#Checks for a full game
 		if check_board_space([]) and FullWin == false:
 			FullWin = true
-			print("big win")
+			$Split/InfoPanel/VBoxContainer/HBoxContainer/Full.get_theme_stylebox("panel").bg_color = Color(0.059, 0.859, 0.016)
+	else:
+		$Split/InfoPanel/VBoxContainer/HBoxContainer/Full.get_theme_stylebox("panel").bg_color = Color.GRAY
+		print("big win")
 
 
 func create_board():
 	#Shuffels the range array
 	for key in BingoArrayRange:
 		for i in 5:
-			BingoArrayRange[key].shuffle()
-			BingoArray[key].append(BingoArrayRange[key][0])
-			BingoArrayRange[key].pop_front()
+			if BingoArray[key][i] == 0:
+				BingoArrayRange[key].shuffle()
+				BingoArray[key][i] = BingoArrayRange[key][0]
+				BingoArrayRange[key].pop_front()
 	#resets the range array for further use
 	BingoArrayRange = {"B":range(1,16),"I":range(16,31),"N":range(31,46),"G":range(46,61),"O":range(61,76)}
 
@@ -96,10 +107,6 @@ func draw_board():
 			var NumberInstance = NumberScene.instantiate()
 			NumberInstance.Number = BingoArray[key][i]
 			get_node("Split/Board/"+str(key)+"/VBoxContainer/NumberHolder").add_child(NumberInstance)
-
-
-func Update_info_panel():
-	pass
 
 func check_board_space(Balls : Array[String]):
 	#This function accepts the a string that is a bingo letter and the index of the letters array.
@@ -134,7 +141,7 @@ func convert_number_to_bingo_ball(Num : int):
 		Result = "O"+str(Num)
 	return Result
 
-var FirstNNumber : bool = false
+var FirstNNumber : int = 0
 
 func _on_number_button_pressed() -> void:
 	#gets called when a ball is drawn
@@ -145,14 +152,24 @@ func _on_number_button_pressed() -> void:
 		var BallLabelInst : Label = BallLabelScene.instantiate()
 		BallLabelInst.text = convert_number_to_bingo_ball(PossibleDraws[0])
 		$Split/InfoPanel/VBoxContainer/NumbersPanel.add_child(BallLabelInst)
+		#Auto check thingy here
+		if AutoSelect == true:
+			for BoardButton : Button in get_tree().get_nodes_in_group("button"):
+				if BoardButton.Number == PossibleDraws[0]:
+					BoardButton.disabled = true
+					check_game_state()
 		#Chekcs for mid win
-		if PossibleDraws[0] >= 31 and PossibleDraws[0] <= 45 and MidCheck == false:
-			MidCheck = true
+		if PossibleDraws[0] >= 31 and PossibleDraws[0] <= 45 and FirstNNumber == 0:
+			FirstNNumber = PossibleDraws[0]
+			if FirstNNumber == BingoArray["N"][2]:
+				MidWin = true
+			else:
+				$Split/InfoPanel/VBoxContainer/HBoxContainer/Middle.get_theme_stylebox("panel").bg_color = Color.GRAY
 		PossibleDraws.pop_front()
-		Update_info_panel()
 	if BallCount <= 0:
 		$Split/InfoPanel/VBoxContainer/NumberButton.disabled = true
 	$Split/InfoPanel/VBoxContainer/BallCounter.text = "Balls left: %d" % (BallCount)
+	check_game_state()
 
 
 func _on_auto_select_toggled(toggled_on: bool) -> void:
@@ -168,6 +185,4 @@ func _on_button_pressed() -> void:
 	if AutoSelect == true:
 		#Goes through the all the buttons to check all of them.
 		for Number in get_tree().get_nodes_in_group("button"):
-			if Number.Number in DrawnNumber:
-				Number.disabled = true
-				CheckedNumbers.append(Number.Number)
+			button_pressed(Number)
