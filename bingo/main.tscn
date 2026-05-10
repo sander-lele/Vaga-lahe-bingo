@@ -7,6 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://dyun2k4yimohq" path="res://Assets/MiddleGame.png" id="4_272bh"]
 [ext_resource type="Texture2D" uid="uid://cwpwovhbbrk83" path="res://Assets/DiagonalGame.png" id="5_5vw27"]
 [ext_resource type="Texture2D" uid="uid://bi4pgnpp6qre6" path="res://Assets/FullGame.png" id="6_kek77"]
+[ext_resource type="AudioStream" uid="uid://cywigvnshl8ah" path="res://sounds/Cursor.wav" id="8_5vw27"]
+[ext_resource type="Script" uid="uid://mrok1p0tfalm" path="res://sounds.gd" id="8_efxa6"]
+[ext_resource type="AudioStream" uid="uid://d08qahp1w1d1i" path="res://sounds/pall.mp3" id="8_ycdy4"]
+[ext_resource type="AudioStream" uid="uid://cpkw3v0sd0kl" path="res://sounds/click.mp3" id="9_kek77"]
+[ext_resource type="AudioStream" uid="uid://d6ccpsdcds7j" path="res://sounds/pall.wav" id="10_4c57u"]
+[ext_resource type="AudioStream" uid="uid://cjduyorqbk44b" path="res://sounds/floraphonic-copper-bell-ding-25-204990.mp3" id="13_vivmo"]
+[ext_resource type="Texture2D" uid="uid://dxq0d1ofp858l" path="res://Assets/AAAAAAAAAAAAAAA.jpg" id="13_w48qg"]
+[ext_resource type="Script" uid="uid://ck38rvw5dkham" path="res://camera_2d.gd" id="14_w48qg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ig7tw"]
 font_size = 45
@@ -51,6 +59,18 @@ corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kek77"]
+bg_color = Color(0.73333335, 0.36862746, 0.14509805, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.92941177, 0.6901961, 0.28235295, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4c57u"]
 bg_color = Color(0.73333335, 0.36862746, 0.14509805, 1)
 border_width_left = 5
 border_width_top = 5
@@ -173,6 +193,49 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("NothingToSeeHere:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_vivmo"]
+resource_name = "lobbster"
+length = 4.69
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sounds/AAAAA")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.29999998,
+"stream": ExtResource("8_ycdy4")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NothingToSeeHere:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4.69),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_1bvp3"]
 resource_name = "menu"
@@ -261,10 +324,26 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7mycd"]
 _data = {
 &"RESET": SubResource("Animation_h2yge"),
+&"lobbster": SubResource("Animation_vivmo"),
 &"menu": SubResource("Animation_1bvp3"),
 &"retry": SubResource("Animation_lquwl"),
 &"start": SubResource("Animation_7mycd")
 }
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4c57u"]
+random_pitch = 1.0659083
+streams_count = 1
+stream_0/stream = ExtResource("9_kek77")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vivmo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2cqfq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yaehf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_074og"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cegan"]
 
 [node name="Main" type="Control" unique_id=1382644672]
 layout_mode = 3
@@ -511,8 +590,9 @@ offset_right = 26.0
 offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
-tooltip_text = "[b]Corner Game:[/b]
-Win if all four corner squares are marked within the first 33 balls."
+tooltip_text = "Corner Game:
+Win if all four corner squares are
+marked within the first 33 balls."
 texture = ExtResource("3_1bvp3")
 stretch_mode = 3
 
@@ -534,8 +614,9 @@ offset_right = 26.0
 offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
-tooltip_text = "[b]Corner Game:[/b]
-Win if all four corner squares are marked within the first 33 balls."
+tooltip_text = "Middle Game:
+Center Square Game: Win if the first ball 
+drawn matches your center square."
 texture = ExtResource("4_272bh")
 stretch_mode = 3
 
@@ -557,14 +638,16 @@ offset_right = 26.0
 offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
-tooltip_text = "[b]Corner Game:[/b]
-Win if all four corner squares are marked within the first 33 balls."
+tooltip_text = "Diagonal Game:
+Win if you complete two diagonals
+(9 squares total) within the first 38 balls."
 texture = ExtResource("5_5vw27")
 stretch_mode = 3
 
 [node name="Full" type="Panel" parent="Split/InfoPanel/VBoxContainer/HBoxContainer" unique_id=1360963028]
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4c57u")
 
 [node name="TextureRect" type="TextureRect" parent="Split/InfoPanel/VBoxContainer/HBoxContainer/Full" unique_id=1295754608]
 layout_mode = 1
@@ -579,8 +662,9 @@ offset_right = 26.0
 offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
-tooltip_text = "[b]Corner Game:[/b]
-Win if all four corner squares are marked within the first 33 balls."
+tooltip_text = "Full Game:
+Win if all squares on
+the board are marked."
 texture = ExtResource("6_kek77")
 stretch_mode = 3
 
@@ -592,7 +676,7 @@ label_settings = SubResource("LabelSettings_272bh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="NumberButton" type="Button" parent="Split/InfoPanel/VBoxContainer" unique_id=72965956]
+[node name="NumberButton" type="Button" parent="Split/InfoPanel/VBoxContainer" unique_id=72965956 groups=["button"]]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -601,7 +685,7 @@ theme_override_fonts/font = SubResource("FontFile_272bh")
 theme_override_font_sizes/font_size = 28
 text = "Draw ball!!!!!!!"
 
-[node name="Settings" type="Button" parent="Split/InfoPanel" unique_id=67311195]
+[node name="Settings" type="Button" parent="Split/InfoPanel" unique_id=67311195 groups=["button"]]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 1
 anchors_preset = 1
@@ -653,7 +737,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0xm2m")
 
-[node name="Button" type="Button" parent="Settings/Panel" unique_id=1150397244]
+[node name="Button" type="Button" parent="Settings/Panel" unique_id=1150397244 groups=["button"]]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 1
 anchors_preset = 1
@@ -702,8 +786,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 min_value = -80.0
-max_value = 10.0
-value = -80.0
+max_value = 0.0
 
 [node name="Sound" type="HBoxContainer" parent="Settings/Panel/VBoxContainer" unique_id=222167846]
 custom_minimum_size = Vector2(0, 50)
@@ -725,10 +808,10 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 min_value = -80.0
-max_value = 10.0
-value = -80.0
+max_value = 0.0
+step = 0.01
 
-[node name="AutoSelect" type="Button" parent="Settings/Panel/VBoxContainer" unique_id=1777614279]
+[node name="AutoSelect" type="Button" parent="Settings/Panel/VBoxContainer" unique_id=1777614279 groups=["button"]]
 custom_minimum_size = Vector2(250, 40)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -743,12 +826,12 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 alignment = 1
 
-[node name="Retry" type="Button" parent="Settings/Panel/VBoxContainer/Buttons" unique_id=1045067688]
+[node name="Retry" type="Button" parent="Settings/Panel/VBoxContainer/Buttons" unique_id=1045067688 groups=["button"]]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "Retry"
 
-[node name="Menu" type="Button" parent="Settings/Panel/VBoxContainer/Buttons" unique_id=1614804935]
+[node name="Menu" type="Button" parent="Settings/Panel/VBoxContainer/Buttons" unique_id=1614804935 groups=["button"]]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "Menu"
@@ -767,6 +850,61 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
+[node name="Sounds" type="Node" parent="." unique_id=1091250956]
+script = ExtResource("8_efxa6")
+
+[node name="Hover" type="AudioStreamPlayer" parent="Sounds" unique_id=1963373274]
+stream = ExtResource("8_5vw27")
+volume_db = -5.0
+max_polyphony = 5
+bus = &"SFX"
+
+[node name="Select" type="AudioStreamPlayer" parent="Sounds" unique_id=1080082922]
+stream = SubResource("AudioStreamRandomizer_4c57u")
+max_polyphony = 5
+bus = &"SFX"
+
+[node name="BingoSelect" type="AudioStreamPlayer" parent="Sounds" unique_id=1590735640]
+stream = ExtResource("10_4c57u")
+volume_db = -10.0
+max_polyphony = 5
+bus = &"SFX"
+
+[node name="Music" type="AudioStreamPlayer" parent="Sounds" unique_id=1166891347]
+volume_db = -10.0
+bus = &"Music"
+
+[node name="AAAAA" type="AudioStreamPlayer" parent="Sounds" unique_id=1923775823]
+volume_db = 5.0
+
+[node name="Correct" type="AudioStreamPlayer" parent="Sounds" unique_id=2131129837]
+stream = ExtResource("13_vivmo")
+bus = &"SFX"
+
+[node name="NothingToSeeHere" type="TextureRect" parent="." unique_id=169608899]
+visible = false
+layout_mode = 0
+offset_right = 1312.0
+offset_bottom = 704.0
+texture = ExtResource("13_w48qg")
+expand_mode = 2
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2045715739]
+anchor_mode = 0
+script = ExtResource("14_w48qg")
+
+[node name="Cheat" type="Button" parent="." unique_id=1021153277]
+layout_mode = 0
+offset_left = 1066.0
+offset_top = 293.0
+offset_right = 1139.0
+offset_bottom = 339.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vivmo")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2cqfq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yaehf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_074og")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cegan")
+
 [connection signal="pressed" from="Split/InfoPanel/VBoxContainer/NumberButton" to="." method="_on_number_button_pressed"]
 [connection signal="pressed" from="Split/InfoPanel/Settings" to="Settings" method="_on_settings_pressed"]
 [connection signal="pressed" from="Settings/Panel/Button" to="." method="_on_button_pressed"]
@@ -776,3 +914,5 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="Settings/Panel/VBoxContainer/Buttons/Retry" to="Settings" method="_on_retry_pressed"]
 [connection signal="pressed" from="Settings/Panel/VBoxContainer/Buttons/Menu" to="Settings" method="_on_menu_pressed"]
 [connection signal="animation_finished" from="Settings/AnimationPlayer" to="Settings" method="_on_animation_player_animation_finished"]
+[connection signal="finished" from="Sounds/Music" to="Sounds" method="_on_music_finished"]
+[connection signal="pressed" from="Cheat" to="." method="_on_cheat_pressed"]

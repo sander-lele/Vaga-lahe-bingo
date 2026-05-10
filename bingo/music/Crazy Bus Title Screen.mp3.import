@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cjvsc6dvidsf2"
+path="res://.godot/imported/Crazy Bus Title Screen.mp3-7b28d09214f8e812099eda6ac601a10e.mp3str"
+
+[deps]
+
+source_file="res://music/Crazy Bus Title Screen.mp3"
+dest_files=["res://.godot/imported/Crazy Bus Title Screen.mp3-7b28d09214f8e812099eda6ac601a10e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

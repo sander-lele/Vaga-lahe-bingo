@@ -1,6 +1,7 @@
 extends Button
 
 @export var NumberLabel : Label
+@export var Particle : CPUParticles2D
 
 var Number : int = 0
 

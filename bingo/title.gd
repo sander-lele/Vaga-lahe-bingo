@@ -4,6 +4,18 @@ var SelfChoiceScene = preload("res://self_choose.tscn")
 
 @export var ErrorLabel : Label
 
+func _ready() -> void:
+	for button : Button in get_tree().get_nodes_in_group("button"):
+		button.pressed.connect(button_pressed)
+		button.mouse_entered.connect(button_hover.bind(button))
+
+func button_pressed():
+	$Sounds/Select.play()
+
+func button_hover(Inst : Button):
+	if Inst.disabled == false:
+		$Sounds/Hover.play()
+
 func convert_number_to_bingo_ball(Num : int):
 	var Result : String = "" 
 	if Num <= 15:

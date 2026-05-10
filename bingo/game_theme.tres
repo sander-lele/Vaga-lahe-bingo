@@ -144,6 +144,20 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bs6c"]
+content_margin_left = 15.0
+content_margin_right = 15.0
+bg_color = Color(0.92941177, 0.6901961, 0.28235295, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.95686275, 0.8352941, 0.39607844, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
 [resource]
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_disabled_color = Color(1, 1, 1, 1)
@@ -171,3 +185,6 @@ PopupMenu/icons/radio_checked = ExtResource("3_pd6sc")
 PopupMenu/styles/hover = SubResource("StyleBoxFlat_bpukv")
 PopupMenu/styles/panel = SubResource("StyleBoxFlat_k2fgf")
 PopupPanel/styles/panel = SubResource("StyleBoxFlat_yf74i")
+TooltipLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+TooltipLabel/constants/outline_size = 5
+TooltipPanel/styles/panel = SubResource("StyleBoxFlat_1bs6c")

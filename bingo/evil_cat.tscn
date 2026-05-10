@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cwec4ue0e7eb5"]
+
+[ext_resource type="Texture2D" uid="uid://c7b2fpat2e8ry" path="res://Assets/evil_cat.png" id="1_c8ygu"]
+[ext_resource type="Script" uid="uid://tgodr1d2mfc2" path="res://cat.gd" id="2_8qh32"]
+
+[node name="EvilCat" type="TextureRect" unique_id=1220720708]
+offset_right = 84.0
+offset_bottom = 81.0
+texture = ExtResource("1_c8ygu")
+script = ExtResource("2_8qh32")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d03y8hkm1ejtl"
+path="res://.godot/imported/calm menu music.mp3-b321e2af4db6e74f078f6e7d1d97e74b.mp3str"
+
+[deps]
+
+source_file="res://music/calm menu music.mp3"
+dest_files=["res://.godot/imported/calm menu music.mp3-b321e2af4db6e74f078f6e7d1d97e74b.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

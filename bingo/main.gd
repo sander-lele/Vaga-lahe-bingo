@@ -22,12 +22,13 @@ var DiagonalWin : bool = false
 var CornerWin : bool = false
 var MidWin : bool = false
 var FullWin : bool = false
-var JackpotWin : bool = false
 
 #These show the possible number range for each letter
 var BingoArrayRange : Dictionary = {"B":range(1,16),"I":range(16,31),"N":range(31,46),"G":range(46,61),"O":range(61,76)}
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	for GamePanels : Panel in $Split/InfoPanel/VBoxContainer/HBoxContainer.get_children():
+		GamePanels.get_theme_stylebox("panel").bg_color = Color(0.733, 0.369, 0.145)
 	if Global.SelfGen == true:
 		for SelfNum : int in Global.SelectedValues:
 			var SelfBall = convert_number_to_bingo_ball(SelfNum)
@@ -38,34 +39,46 @@ func _ready() -> void:
 	PossibleDraws.shuffle()
 	#connects the main script with all the board buttons.
 	var buttons = get_tree().get_nodes_in_group("button")
+	var BingoButtons = get_tree().get_nodes_in_group("bingobutton")
 	for i in buttons.size():
 		if buttons[i].is_connected("pressed", Callable(self,"button_pressed")) == false or buttons[i].is_connected("mouse_entered", Callable(self,"button_hoverd")) == false:
-			buttons[i].pressed.connect(button_pressed.bind(buttons[i]))
+			buttons[i].pressed.connect(button_pressed)
 			buttons[i].mouse_entered.connect(button_hoverd.bind(buttons[i]))
+	for BingoButton : Button in BingoButtons:
+		if BingoButton.is_connected("pressed", Callable(self,"bingo_button_pressed")) == false or BingoButton.is_connected("mouse_entered", Callable(self,"button_hoverd")) == false:
+			BingoButton.pressed.connect(bingo_button_pressed.bind(BingoButton))
+			BingoButton.mouse_entered.connect(button_hoverd.bind(BingoButton))
 
-
-func button_pressed(inst : Button):
+func bingo_button_pressed(inst : Button):
 	#$pressed.play()
-	if DrawnNumber.has(inst.Number):
+	if DrawnNumber.has(inst.Number) and inst.disabled == false:
 		inst.disabled = true
+		inst.Particle.emitting = true
 		CheckedNumbers.append(inst.Number)
 		check_game_state()
+		$Sounds/BingoSelect.play()
+		$Camera2D.apply_shake()
+
+func button_pressed():
+	$Sounds/Select.play()
 
 func button_hoverd(inst):
 	if inst.disabled == false:
-		#$hover.play()
+		$Sounds/Hover.play()
 		pass
 
 func check_game_state():
 	var DrawnNumberCount : int = DrawnNumber.size()
 	if check_board_space(["N2"]) and MidWin == true:
 		$Split/InfoPanel/VBoxContainer/HBoxContainer/Middle.get_theme_stylebox("panel").bg_color = Color(0.059, 0.859, 0.016)
+		$Sounds/Correct.play()
 	if DrawnNumberCount <= 33:
 		#Checks for a corner game
 		if check_board_space(["B0","B4","O4","O0"]) == true and CornerWin == false:
 			CornerWin = true
 			print("win")
 			$Split/InfoPanel/VBoxContainer/HBoxContainer/Corner.get_theme_stylebox("panel").bg_color = Color(0.059, 0.859, 0.016)
+			$Sounds/Correct.play()
 	else:
 		$Split/InfoPanel/VBoxContainer/HBoxContainer/Corner.get_theme_stylebox("panel").bg_color = Color.GRAY
 		$Split/InfoPanel/VBoxContainer/HBoxContainer/Middle.get_theme_stylebox("panel").bg_color = Color.GRAY
@@ -74,6 +87,7 @@ func check_game_state():
 		if check_board_space(["B0","B4","I1","I3","N2","G1","G3","O0","O4"]) == true and DiagonalWin == false:
 			DiagonalWin = true
 			$Split/InfoPanel/VBoxContainer/HBoxContainer/Diagonal.get_theme_stylebox("panel").bg_color = Color(0.059, 0.859, 0.016)
+			$Sounds/Correct.play()
 	else:
 		$Split/InfoPanel/VBoxContainer/HBoxContainer/Diagonal.get_theme_stylebox("panel").bg_color = Color.GRAY
 	if DrawnNumberCount <= 48:
@@ -81,9 +95,7 @@ func check_game_state():
 		if check_board_space([]) and FullWin == false:
 			FullWin = true
 			$Split/InfoPanel/VBoxContainer/HBoxContainer/Full.get_theme_stylebox("panel").bg_color = Color(0.059, 0.859, 0.016)
-	else:
-		$Split/InfoPanel/VBoxContainer/HBoxContainer/Full.get_theme_stylebox("panel").bg_color = Color.GRAY
-		print("big win")
+			$Sounds/Correct.play()
 
 
 func create_board():
@@ -154,10 +166,8 @@ func _on_number_button_pressed() -> void:
 		$Split/InfoPanel/VBoxContainer/NumbersPanel.add_child(BallLabelInst)
 		#Auto check thingy here
 		if AutoSelect == true:
-			for BoardButton : Button in get_tree().get_nodes_in_group("button"):
-				if BoardButton.Number == PossibleDraws[0]:
-					BoardButton.disabled = true
-					check_game_state()
+			for BoardButton : Button in get_tree().get_nodes_in_group("bingobutton"):
+				bingo_button_pressed(BoardButton)
 		#Chekcs for mid win
 		if PossibleDraws[0] >= 31 and PossibleDraws[0] <= 45 and FirstNNumber == 0:
 			FirstNNumber = PossibleDraws[0]
@@ -168,8 +178,11 @@ func _on_number_button_pressed() -> void:
 		PossibleDraws.pop_front()
 	if BallCount <= 0:
 		$Split/InfoPanel/VBoxContainer/NumberButton.disabled = true
+		$Split/InfoPanel/VBoxContainer/HBoxContainer/Full.get_theme_stylebox("panel").bg_color = Color.GRAY
 	$Split/InfoPanel/VBoxContainer/BallCounter.text = "Balls left: %d" % (BallCount)
 	check_game_state()
+	if randi_range(1,1000) == 1:
+		$Settings/AnimationPlayer.play("lobbster")
 
 
 func _on_auto_select_toggled(toggled_on: bool) -> void:
@@ -184,5 +197,14 @@ func _on_button_pressed() -> void:
 	$Settings.visible = false
 	if AutoSelect == true:
 		#Goes through the all the buttons to check all of them.
-		for Number in get_tree().get_nodes_in_group("button"):
-			button_pressed(Number)
+		for Number in get_tree().get_nodes_in_group("bingobutton"):
+			bingo_button_pressed(Number)
+
+
+
+func _on_cheat_pressed() -> void:
+	BallCount += 1
+	var CatScene = preload("res://evil_cat.tscn")
+	var CatInst = CatScene.instantiate()
+	add_child(CatInst)
+	$Split/InfoPanel/VBoxContainer/BallCounter.text = "Balls left: %d" % (BallCount)
