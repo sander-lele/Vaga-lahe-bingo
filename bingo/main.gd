@@ -79,8 +79,9 @@ func check_game_state():
 			print("win")
 			$Split/InfoPanel/VBoxContainer/HBoxContainer/Corner.get_theme_stylebox("panel").bg_color = Color(0.059, 0.859, 0.016)
 			$Sounds/Correct.play()
-	else:
+	elif CornerWin == false:
 		$Split/InfoPanel/VBoxContainer/HBoxContainer/Corner.get_theme_stylebox("panel").bg_color = Color.GRAY
+	if DrawnNumberCount <= 33 and MidWin == false:
 		$Split/InfoPanel/VBoxContainer/HBoxContainer/Middle.get_theme_stylebox("panel").bg_color = Color.GRAY
 	if DrawnNumberCount <= 38:
 		#Checks for a diagonal game
@@ -88,7 +89,7 @@ func check_game_state():
 			DiagonalWin = true
 			$Split/InfoPanel/VBoxContainer/HBoxContainer/Diagonal.get_theme_stylebox("panel").bg_color = Color(0.059, 0.859, 0.016)
 			$Sounds/Correct.play()
-	else:
+	elif DiagonalWin == false:
 		$Split/InfoPanel/VBoxContainer/HBoxContainer/Diagonal.get_theme_stylebox("panel").bg_color = Color.GRAY
 	if DrawnNumberCount <= 48:
 		#Checks for a full game
@@ -178,7 +179,8 @@ func _on_number_button_pressed() -> void:
 		PossibleDraws.pop_front()
 	if BallCount <= 0:
 		$Split/InfoPanel/VBoxContainer/NumberButton.disabled = true
-		$Split/InfoPanel/VBoxContainer/HBoxContainer/Full.get_theme_stylebox("panel").bg_color = Color.GRAY
+		if FullWin == false:
+			$Split/InfoPanel/VBoxContainer/HBoxContainer/Full.get_theme_stylebox("panel").bg_color = Color.GRAY
 	$Split/InfoPanel/VBoxContainer/BallCounter.text = "Balls left: %d" % (BallCount)
 	check_game_state()
 	if randi_range(1,1000) == 1:
